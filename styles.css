@@ -1,0 +1,73 @@
+/* Estilos gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    flex-direction: column; /* Adicionado para centralizar verticalmente */
+}
+
+h1 {
+    color: #4c4faf;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    color: #4c4faf;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    margin: 10px 0;
+}
+
+button, .button {
+    padding: 10px 20px;
+    background-color: #4c4faf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .button:hover {
+    background-color: #4c4faf;
+}
+
+#result {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
