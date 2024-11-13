@@ -35,7 +35,7 @@ window.onload = function() {
         if (localStorage.getItem('q2') === 'b') score++;
         if (localStorage.getItem('q3') === 'c') score++;
         if (localStorage.getItem('q4') === 'b') score++;
-        if (localStorage.getItem('q5') === 'd') score++;
+        if (localStorage.getItem('q5') === 'b') score++;
         
         const percentage = (score / totalQuestions) * 100;
         
