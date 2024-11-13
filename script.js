@@ -1,3 +1,4 @@
+let respostasErradas = [];
 function nextQuestion(nextPage) {
     // Salvar a resposta no localStorage
     const form = document.getElementById('quizForm');
@@ -27,18 +28,42 @@ function finishQuiz() {
 
 window.onload = function() {
     if (window.location.pathname.includes('result.html')) {
-        // Calcular e exibir o resultado
         let score = 0;
         const totalQuestions = 5;
-        
-        if (localStorage.getItem('q1') === 'a') score++;
-        if (localStorage.getItem('q2') === 'b') score++;
-        if (localStorage.getItem('q3') === 'c') score++;
-        if (localStorage.getItem('q4') === 'b') score++;
-        if (localStorage.getItem('q5') === 'b') score++;
-        
+
+        // Respostas corretas
+        const respostasCorretas = {
+            q1: 'a',
+            q2: 'b',
+            q3: 'c',
+            q4: 'b',
+            q5: 'b'
+        };
+
+        // Verificação das respostas e cálculo da pontuação
+        for (let i = 1; i <= totalQuestions; i++) {
+            const respostaUsuario = localStorage.getItem(`q${i}`);
+            if (respostaUsuario === respostasCorretas[`q${i}`]) {
+                score++;
+            } else {
+                respostasErradas.push(`Questão ${i}: Sua resposta foi '${respostaUsuario}'`);
+            }
+        }
+
         const percentage = (score / totalQuestions) * 100;
-        
         document.getElementById('result').innerText = `Você acertou ${score} de ${totalQuestions} perguntas (${percentage}%).`;
+
+        // Exibir as respostas erradas
+        atualizarRespostasErradas();
     }
 };
+
+function atualizarRespostasErradas() {
+    const listaErros = document.getElementById("respostasErradas");
+    listaErros.innerHTML = "";
+    respostasErradas.forEach(erro => {
+        const item = document.createElement("li");
+        item.textContent = erro;
+        listaErros.appendChild(item);
+    });
+}
